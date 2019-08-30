@@ -74,14 +74,14 @@ public class Display extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics(); // берём графику из буфера
 		
 		
-		
+		screen.clear();
 		screen.render();
+		
 		for(int i = 1; i < pixels.length; i++) 
 			pixels[i] = screen.pixels[i];
 		
 		g.setColor(new Color(0xff00ff));
 		g.fillRect(0, 0, getWidth(), getHeight());
-		
 		g.drawImage(image, 0, 0 ,getWidth(), getHeight(), null);
 	
 		
