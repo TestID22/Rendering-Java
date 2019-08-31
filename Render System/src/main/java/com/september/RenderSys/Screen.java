@@ -1,10 +1,14 @@
-package com.september.dGame;
+package com.september.RenderSys;
+
+import java.util.Random;
 
 public class Screen {
 	
 	private int width;
 	private int height;
 	public int[] pixels;
+	
+	private static Random random = new Random();
 	
 	int time = 0;
 	int counter = 0;
@@ -27,9 +31,9 @@ public class Screen {
 		if(counter % 10 == 0) {
 			time++;
 		}
-		for (int y = 0; y < height; y++) {
-			for(int x = 0; x < width; x++)
-				pixels[time + time * width] = 0x00f7ff;
+		for (int y = 100; y < height - 300; y++) {
+			for(int x = 100; x < width - 200; x++)
+				pixels[x + (y * width)] = random.nextInt(0xffffff);
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package com.september.dGame;
+package com.september.RenderSys;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -76,7 +76,6 @@ public class Display extends Canvas implements Runnable{
 		
 		screen.clear();
 		screen.render();
-		
 		for(int i = 1; i < pixels.length; i++) 
 			pixels[i] = screen.pixels[i];
 		
