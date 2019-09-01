@@ -36,7 +36,7 @@ public class Display extends Canvas implements Runnable{
 		running = true;
 		thread = new Thread(this, "Display");//создадим объект потока
 		thread.start(); 					//стартуем поток, который запустит метод run и код внутри
-		
+	
 		screen = new Screen(width, height);
 		
 	}
@@ -51,12 +51,21 @@ public class Display extends Canvas implements Runnable{
 	
 	//код внутри будет выполнятся потоком "Display"
 	public void run() {
-		while(running)
-		{
-			update();
-			render();
-		}
 		
+		long lastTime = System.nanoTime(); //give time
+		final double ns = 1_000_000_000.0 / 60.0; //Конвенция по обработке ФПС млрд ноносек делим на 60.получаем один фрейм
+		double delta = 0;
+
+		while(running) {
+			long now = System.nanoTime();
+			delta += (now - lastTime);
+			lastTime = now;
+			if(delta >= ns) {
+				update();
+				delta = 0;
+			}
+			render();
+		}	
 	}
 	
 	public void update() {
