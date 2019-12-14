@@ -20,12 +20,12 @@ public class Screen {
 		pixels = new int[width * height];
 		
 	}
-	
+	//Очищаем экран
 	public void clear() {
 		for(int i = 0; i < pixels.length; i++)
 			pixels[i] = 0;
 	}
-	
+//	функция для отрисовки пикселей
 	public void render() {
 		counter++;
 		if(counter % 10 == 0) {

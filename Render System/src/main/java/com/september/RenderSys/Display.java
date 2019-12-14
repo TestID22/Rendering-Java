@@ -53,7 +53,7 @@ public class Display extends Canvas implements Runnable{
 	public void run() {
 		
 		long lastTime = System.nanoTime(); //give time
-		final double ns = 1_000_000_000.0 / 60.0; //Конвенция по обработке ФПС млрд ноносек делим на 60.получаем один фрейм
+		final double ns = 1.6666666666666666E7; //Конвенция по обработке ФПС млрд ноносек делим на 60.получаем один фрейм
 		double delta = 0;
 
 		while(running) {
