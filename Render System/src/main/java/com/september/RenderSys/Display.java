@@ -36,14 +36,13 @@ public class Display extends Canvas implements Runnable{
 		running = true;
 		thread = new Thread(this, "Display");//создадим объект потока
 		thread.start(); 					//стартуем поток, который запустит метод run и код внутри
-	
 		screen = new Screen(width, height);
 		
 	}
 	
 	public synchronized void stop() {
 		try {
-			thread.join(); 					//метод джоин  Waits for this thread to die.
+			thread.join(); 					//метод джоин  Wait for this thread to die.
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -81,8 +80,7 @@ public class Display extends Canvas implements Runnable{
 		return;
 		}
 		Graphics g = bs.getDrawGraphics(); // берём графику из буфера
-		
-		
+
 		screen.clear();
 		screen.render();
 		for(int i = 1; i < pixels.length; i++) 
